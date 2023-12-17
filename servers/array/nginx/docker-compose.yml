@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  toolbi_array_nginx:
+    image: toolbi_array_nginx:1.0
+    container_name: toolbi_array_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /opt/certificates/:/shared/certificates/domains/
+      - /opt/mailcow-dockerized/data/assets/ssl/:/shared/certificates/mailcow/
