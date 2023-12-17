@@ -17,6 +17,8 @@ jobs:
         run: docker build --tag "toolbi_array_nginx:1.0" ./servers/array/nginx/
       - name: Save Image
         run: docker save -o toolbi_array_nginx.tar toolbi_array_nginx:1.0
+      - name: "Move 'docker-compose.yml' to root"
+        run: mv ./servers/array/nginx/docker-compose.yml ./docker-compose.yml
       - name: Send Image to the Server
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -47,7 +49,7 @@ jobs:
           port: ${{secrets.SSH_ARRAY_PORT}}
           username: ${{secrets.SSH_ARRAY_USER}}
           key: ${{secrets.SSH_ARRAY_KEY}}
-          source: "servers/array/nginx/docker-compose.yml"
+          source: "docker-compose.yml"
           target: "/opt/deployments/toolbi_array_nginx/"
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.0
