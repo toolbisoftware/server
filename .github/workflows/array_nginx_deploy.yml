@@ -2,7 +2,8 @@ name: Array · NGINX · Deploy
 on:
   push:
     branches: [main]
-    paths: ["servers/array/nginx/**"]
+    paths:
+      ["servers/array/nginx/**", ".github/workflows/array_nginx_deploy.yml"]
 jobs:
   deploy:
     name: Deploy
@@ -15,7 +16,7 @@ jobs:
       - name: Build Image
         run: docker build --tag "toolbi_array_nginx:1.0" ./servers/array/nginx/
       - name: Save Image
-        run: docker save -o image.tar toolbi_array_nginx:1.0
+        run: docker save -o toolbi_array_nginx.tar toolbi_array_nginx:1.0
       - name: Send Image to the Server
         uses: appleboy/scp-action@v0.1.4
         with:
