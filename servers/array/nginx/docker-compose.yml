@@ -8,5 +8,5 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /opt/certificates/:/shared/certificates/domains/
-      - /opt/mailcow-dockerized/data/assets/ssl/:/shared/certificates/mailcow/
+      - /opt/certificates/:/external/certificates/domains/
+      - /opt/mailcow-dockerized/data/assets/ssl/:/external/certificates/mailcow/
