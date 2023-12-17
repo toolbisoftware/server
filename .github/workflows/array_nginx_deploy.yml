@@ -35,7 +35,8 @@ jobs:
           script: |
             mkdir -p /opt/deployments/toolbi_array_nginx
             docker kill toolbi_array_nginx
-            docker rm toolbi_array_nginx
+            cd /opt/deployments/toolbi_array_nginx/
+            docker compose down
             docker load -i /opt/images/toolbi_array_nginx.tar
             rm /opt/images/toolbi_array_nginx.tar
       - name: "Send 'docker-compose.yml' to the Server"
