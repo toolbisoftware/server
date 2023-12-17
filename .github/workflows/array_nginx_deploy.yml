@@ -47,7 +47,7 @@ jobs:
           port: ${{secrets.SSH_ARRAY_PORT}}
           username: ${{secrets.SSH_ARRAY_USER}}
           key: ${{secrets.SSH_ARRAY_KEY}}
-          source: "./servers/array/nginx/docker-compose.yml"
+          source: "servers/array/nginx/docker-compose.yml"
           target: "/opt/deployments/toolbi_array_nginx/"
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.0
