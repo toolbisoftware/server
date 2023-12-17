@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          sparse-checkout: "servers/array/nginx/**"
+          sparse-checkout: "servers/array/nginx/"
       - name: Build Image
         run: docker build --tag "toolbi_array_nginx:1.0" ./servers/array/nginx/
       - name: Save Image
